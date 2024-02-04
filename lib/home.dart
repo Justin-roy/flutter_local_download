@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_local_download/local_download.dart';
+import 'package:flutter_local_download/search_api_delegate.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -28,6 +29,14 @@ class _HomePageState extends State<HomePage> {
           'Flutter Local Download',
           style: textTheme.titleLarge,
         ),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.search),
+            onPressed: () async {
+              await showSearch(context: context, delegate: SearchApiDelegate());
+            },
+          ),
+        ],
       ),
       body: Form(
         key: _formKey,
